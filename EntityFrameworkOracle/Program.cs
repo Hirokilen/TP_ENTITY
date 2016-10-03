@@ -53,14 +53,30 @@ namespace EntityFrameworkOracle
                 Console.WriteLine("---------------------------------------------------------");
                 var requete = from s in oracleContexte.SEMINAIREs
                               join COUR in oracleContexte.COURS on s.CODECOURS equals COUR.CODECOURS
-                              select s;
-                var requeteNb = requete.Count();
+                              group s by new { s.CODECOURS, s.COUR.LIBELLECOURS } into groupeEmployes
+                              select new
+                              {
+                                  LibelleCours = groupeEmployes.Key.LIBELLECOURS,
+                                  Cours = groupeEmployes.Key.CODECOURS,
+                                  Nombre = groupeEmployes.Count()
+                              };
+                var codecours = "";
+                
 
                 var lesSeminaires = requete.ToList();
+                
 
                 foreach (var unSeminaire in lesSeminaires)
                 {
-                    Console.WriteLine(unSeminaire.CODESEMI + " - " + unSeminaire.CODECOURS + " - " + unSeminaire.COUR.LIBELLECOURS + " - ");
+                    Console.WriteLine(unSeminaire.LibelleCours+ " - " + unSeminaire.Cours + " - " + unSeminaire.Nombre);
+                    var requeteDate = from s in oracleContexte.SEMINAIREs
+                                      where s.CODECOURS == unSeminaire.Cours
+                                      select s;
+                    var lesDates = requeteDate.ToList();
+                    foreach (var uneDate in lesDates)
+                    {
+                        Console.WriteLine("                 "+uneDate.DATEDEBUTSEM);
+                    }
                 }
 
 
