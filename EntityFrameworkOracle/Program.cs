@@ -60,9 +60,7 @@ namespace EntityFrameworkOracle
                                   Cours = groupeEmployes.Key.CODECOURS,
                                   Nombre = groupeEmployes.Count()
                               };
-                var codecours = "";
                 
-
                 var lesSeminaires = requete.ToList();
                 
 
@@ -79,8 +77,30 @@ namespace EntityFrameworkOracle
                     }
                 }
 
+                // Mise à jour des données
 
+                var emp = oracleContexte.EMPLOYEs.Find(200);
+                
+                
 
+                if (emp != null)
+                {
+                    emp.SALAIRE = emp.SALAIRE * (decimal)1.1;
+                    Console.WriteLine("Le nouveau salaire = " + emp.SALAIRE);
+                    oracleContexte.SaveChanges();
+                }
+                else
+                {
+                    Console.WriteLine("L'employé n'existe pas.");
+                }
+
+                COUR unCours = new COUR();
+                unCours.CODECOURS = "BR099";
+                unCours.LIBELLECOURS = "Entity Framework 6 avec Oracle";
+                unCours.NBJOURS = 4;
+                oracleContexte.COURS.Add(unCours);
+                oracleContexte.SaveChanges();
+                Console.WriteLine("Le cours a été créé");
             }
             Console.ReadLine();
         }
