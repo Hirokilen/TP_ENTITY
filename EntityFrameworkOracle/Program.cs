@@ -32,6 +32,38 @@ namespace EntityFrameworkOracle
                 {
                     Console.WriteLine(unEmploye.NUMEMP + " - " + unEmploye.NOMEMP);
                 }
+                Console.WriteLine("---------------------------------------------------------");
+
+                var idEmploye = 28;
+                var requeteEmployesById = from EMPLOYE in oracleContexte.EMPLOYEs
+                                          where EMPLOYE.NUMEMP == idEmploye
+                                          select EMPLOYE;
+                var employeId = requeteEmployesById.FirstOrDefault();
+
+                if(employeId != null)
+                {
+                    Console.WriteLine(employeId.NOMEMP + " - " + employeId.PRENOMEMP + " - " + employeId.SALAIRE);
+                }
+                else
+                {
+                    Console.WriteLine("L'employé numéro " + idEmploye + " n'existe pas.");
+                }
+                Console.WriteLine("---------------------------------------------------------");
+                Console.WriteLine("------ Cours et séminaires ------");
+                Console.WriteLine("---------------------------------------------------------");
+                var requete = from s in oracleContexte.SEMINAIREs
+                              join COUR in oracleContexte.COURS on s.CODECOURS equals COUR.CODECOURS
+                              select s;
+                var requeteNb = requete.Count();
+
+                var lesSeminaires = requete.ToList();
+
+                foreach (var unSeminaire in lesSeminaires)
+                {
+                    Console.WriteLine(unSeminaire.CODESEMI + " - " + unSeminaire.CODECOURS + " - " + unSeminaire.COUR.LIBELLECOURS + " - ");
+                }
+
+
 
             }
             Console.ReadLine();
