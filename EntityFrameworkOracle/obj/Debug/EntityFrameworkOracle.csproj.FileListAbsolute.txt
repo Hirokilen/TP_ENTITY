@@ -1,0 +1,1 @@
+c:\users\raimon.d\documents\visual studio 2015\Projects\EntityFrameworkOracle\EntityFrameworkOracle\bin\Debug\EntityFrameworkOracle.exe.config
