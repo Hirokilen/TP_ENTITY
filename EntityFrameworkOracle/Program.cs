@@ -12,6 +12,12 @@ namespace EntityFrameworkOracle
         {
             using (OracleEntities oracleContexte = new OracleEntities())
             {
+
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine("---------------------------------------------------------");
+                Console.WriteLine("-------------------TOUS LES EMPLOYES---------------------");
+                Console.WriteLine("---------------------------------------------------------");
+                Console.ForegroundColor = ConsoleColor.White;
                 var requeteEmployes = from EMPLOYE in oracleContexte.EMPLOYEs
                                       select EMPLOYE;
                 var lesEmployes = requeteEmployes.ToList();
@@ -20,8 +26,24 @@ namespace EntityFrameworkOracle
                 {
                     Console.WriteLine(unEmploye.ToString());
                 }
-
+                Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine("---------------------------------------------------------");
+                Console.WriteLine("---------------------TOUS LES COURS----------------------");
+                Console.WriteLine("---------------------------------------------------------");
+                Console.ForegroundColor = ConsoleColor.White;
+                var requeteCours = from COURS in oracleContexte.COURS
+                                      select COURS;
+                var lesCours = requeteCours.ToList();
+
+                foreach (var unCours in lesCours)
+                {
+                    Console.WriteLine(unCours.ToString());
+                }
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine("---------------------------------------------------------");
+                Console.WriteLine("------------EMPLOYE PARTICIPANT AU PROJET PR1------------");
+                Console.WriteLine("---------------------------------------------------------");
+                Console.ForegroundColor = ConsoleColor.White;
                 var unCodeProjet = "PR1";
                 var requeteEmployesProjet = from EMPLOYE in oracleContexte.EMPLOYEs
                                             where EMPLOYE.CODEPROJET.TrimEnd() == unCodeProjet
@@ -32,7 +54,11 @@ namespace EntityFrameworkOracle
                 {
                     Console.WriteLine(unEmploye.NUMEMP + " - " + unEmploye.NOMEMP);
                 }
+                Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine("---------------------------------------------------------");
+                Console.WriteLine("----------EMPLOYE CORRESPONDANT AU NUM EMP 28------------");
+                Console.WriteLine("---------------------------------------------------------");
+                Console.ForegroundColor = ConsoleColor.White;
 
                 var idEmploye = 28;
                 var requeteEmployesById = from EMPLOYE in oracleContexte.EMPLOYEs
@@ -48,9 +74,11 @@ namespace EntityFrameworkOracle
                 {
                     Console.WriteLine("L'employé numéro " + idEmploye + " n'existe pas.");
                 }
+                Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine("---------------------------------------------------------");
                 Console.WriteLine("------ Cours et séminaires ------");
                 Console.WriteLine("---------------------------------------------------------");
+                Console.ForegroundColor = ConsoleColor.White;
                 var requete = from s in oracleContexte.SEMINAIREs
                               join COUR in oracleContexte.COURS on s.CODECOURS equals COUR.CODECOURS
                               group s by new { s.CODECOURS, s.COUR.LIBELLECOURS } into groupeEmployes
@@ -78,7 +106,7 @@ namespace EntityFrameworkOracle
                 }
 
                 // Mise à jour des données
-
+                /*
                 var emp = oracleContexte.EMPLOYEs.Find(200);
                 
                 
@@ -93,6 +121,7 @@ namespace EntityFrameworkOracle
                 {
                     Console.WriteLine("L'employé n'existe pas.");
                 }
+                */
                 // CREATION D'UN COUR
                 /*
                 COUR unCours = new COUR();
