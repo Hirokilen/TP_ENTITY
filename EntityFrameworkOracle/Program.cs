@@ -18,7 +18,7 @@ namespace EntityFrameworkOracle
 
                 foreach (var unEmploye in lesEmployes)
                 {
-                    Console.WriteLine(unEmploye.NUMEMP + " - " + unEmploye.NOMEMP);
+                    Console.WriteLine(unEmploye.ToString());
                 }
 
                 Console.WriteLine("---------------------------------------------------------");
@@ -93,7 +93,8 @@ namespace EntityFrameworkOracle
                 {
                     Console.WriteLine("L'employé n'existe pas.");
                 }
-
+                // CREATION D'UN COUR
+                /*
                 COUR unCours = new COUR();
                 unCours.CODECOURS = "BR099";
                 unCours.LIBELLECOURS = "Entity Framework 6 avec Oracle";
@@ -101,6 +102,7 @@ namespace EntityFrameworkOracle
                 oracleContexte.COURS.Add(unCours);
                 oracleContexte.SaveChanges();
                 Console.WriteLine("Le cours a été créé");
+                */
             }
             Console.ReadLine();
         }

@@ -36,5 +36,10 @@ namespace EntityFrameworkOracle
         public virtual PROJET PROJET { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<INSCRIT> INSCRITs { get; set; }
+
+        public override string ToString()
+        {
+            return NUMEMP + " | " + NOMEMP + " | " + PRENOMEMP + " | " + POSTE + " | " + SALAIRE + " | " + ((PRIME==null) ? 0 : PRIME) + " | " + ((CODEPROJET == null) ? "///" : CODEPROJET) + " | " + ((SUPERIEUR == null) ? 0 : SUPERIEUR);
+        }
     }
 }
