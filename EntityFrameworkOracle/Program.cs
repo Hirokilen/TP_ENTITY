@@ -76,6 +76,23 @@ namespace EntityFrameworkOracle
                 }
                 Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine("---------------------------------------------------------");
+                Console.WriteLine("----------EMPLOYE CORRESPONDANT AU NUM EMP 5------------");
+                Console.WriteLine("---------------------------------------------------------");
+                Console.ForegroundColor = ConsoleColor.White;
+
+                idEmploye = 5;
+                var employeId2 = requeteEmployesById.FirstOrDefault();
+
+                if (employeId2 != null)
+                {
+                    Console.WriteLine(employeId2.NOMEMP + " - " + employeId2.PRENOMEMP + " - " + employeId2.SALAIRE);
+                }
+                else
+                {
+                    Console.WriteLine("L'employé numéro " + idEmploye + " n'existe pas.");
+                }
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine("---------------------------------------------------------");
                 Console.WriteLine("------ Cours et séminaires ------");
                 Console.WriteLine("---------------------------------------------------------");
                 Console.ForegroundColor = ConsoleColor.White;
