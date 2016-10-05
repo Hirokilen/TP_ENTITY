@@ -24,10 +24,6 @@ namespace EntityFrameworkOracle
         public string LIBELLECOURS { get; set; }
         public decimal NBJOURS { get; set; }
         public decimal TARIF { get; set; }
-        public override string ToString()
-        {
-            return CODECOURS + " | " + LIBELLECOURS + " | " + NBJOURS + " | " + TARIF;
-        }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<SEMINAIRE> SEMINAIREs { get; set; }

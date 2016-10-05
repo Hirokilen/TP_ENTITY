@@ -10,3 +10,5 @@ c:\users\raimon.d\documents\visual studio 2015\Projects\EntityFrameworkOracle\En
 c:\users\raimon.d\documents\visual studio 2015\Projects\EntityFrameworkOracle\EntityFrameworkOracle\obj\Debug\EntityFrameworkOracle.csprojResolveAssemblyReference.cache
 c:\users\raimon.d\documents\visual studio 2015\Projects\EntityFrameworkOracle\EntityFrameworkOracle\obj\Debug\EntityFrameworkOracle.exe
 c:\users\raimon.d\documents\visual studio 2015\Projects\EntityFrameworkOracle\EntityFrameworkOracle\obj\Debug\EntityFrameworkOracle.pdb
+C:\Users\raimon.d\Documents\Visual Studio 2015\Projects\EntityFrameworkOracle\EntityFrameworkOracle\bin\Debug\MySql.Data.dll
+C:\Users\raimon.d\Documents\Visual Studio 2015\Projects\EntityFrameworkOracle\EntityFrameworkOracle\bin\Debug\mysql.data.entity.EF6.dll
